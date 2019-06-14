@@ -28,13 +28,14 @@ function chia(a , b , cb){
         cb(null ,body.message)
     })
 }
-cong(10 , 'x' , (error , tong) => {
-    if(error) return console.log(error)
-    nhan(tong , 2 , (error , tich) => {
-        if(error) return console.log(error)
-        console.log(tich)
-    })
-})
+// cong(10 , 'x' , (error , tong) => {
+//     if(error) return console.log(error)
+//     nhan(tong , 2 , (error , tich) => {
+//         if(error) return console.log(error)
+//         console.log(tich)
+//     })
+// })
+//1/2 (a+b) x h
 function dientichhinhthang(a , b , h , cb){
 
 }
