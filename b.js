@@ -19,15 +19,15 @@ const request = require('request')
 //     console.log("khong co thanh pho hien tai")
 // })
 
-function getTemp(city , cb){
-    const URL = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&appid=86183a23377ed034aef7aad102f43d64`
-    request(URL ,{json : true} ,(error , response , body)=> {
-        if(error) return cb(new Error("loi url"))
-        if(body.cod == "200") return cb(null , body.list[0].main.temp)
-        cb(new Error("Khong co thanh pho") )
-    })
-}
-let a
-getTemp("a" , (error , temp) => {
-    console.log(error.message || temp)
-})
+// function getTemp(city , cb){
+//     const URL = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&appid=86183a23377ed034aef7aad102f43d64`
+//     request(URL ,{json : true} ,(error , response , body)=> {
+//         if(error) return cb(new Error("loi url"))
+//         if(body.cod == "200") return cb(null , body.list[0].main.temp)
+//         cb(new Error("Khong co thanh pho") )
+//     })
+// }
+
+// getTemp("a" , (error , temp) => {
+//     console.log(error.message || temp)
+// })
