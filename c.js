@@ -28,7 +28,17 @@ function chia(a , b , cb){
         cb(null ,body.message)
     })
 }
-cong(10 , 10 , (error , tong) => {
-    console.log(error || tong)
+cong(10 , 'x' , (error , tong) => {
+    if(error) return console.log(error)
+    nhan(tong , 2 , (error , tich) => {
+        if(error) return console.log(error)
+        console.log(tich)
+    })
+})
+function dientichhinhthang(a , b , h , cb){
+
+}
+dientichhinhthang(10 , 5 , 8 , (error , ketqua)=>{
+    console.log(error ||ketqua)
 })
 
