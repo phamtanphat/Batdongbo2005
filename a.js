@@ -10,13 +10,15 @@
 // getTemp(Hanoi) => thoi tiet hanoi la bnhiu do , bao neu khong quoc gia hien tai
 
 
-function getValue(cb){
-    let a = 10
-    setTimeout(function(){
-        a = 20
-        cb(a)
-    },1000)
-}
-getValue(function(a){
-    console.log(a)
-})
+// function getValue(cb){
+//     let a = 10
+//     setTimeout(function(){
+//         a = 20
+//         cb(a)
+//     },1000)
+// }
+// getValue(function(a){
+//     console.log(a)
+// })
+
+
