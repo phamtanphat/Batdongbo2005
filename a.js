@@ -12,7 +12,7 @@
 
 function getValue(cb){
     let a = 10
-    setTimeout(() => {
+    setTimeout(function(){
         a = 20
         cb(a)
     },1000)
