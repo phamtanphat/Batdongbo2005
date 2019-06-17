@@ -45,16 +45,22 @@ function chia(a, b) {
 }
 
 //1/2 (a+b) x h
-function dientichhinhthang(a, b, h, cb) {
-    cong(a , b)
-    .then(tong => chia(tong , 2))
-    .then(trungbinh2so => nhan(trungbinh2so , h))
-    .then(ketqua => cb(null , ketqua))
-    .catch(error => cb(error))
+function dientichhinhthang(a, b, h) {
+    return new Promise((resolve , reject) =>{
+        cong(a , b)
+        .then(tong => chia(tong , 2))
+        .then(trungbinh2so => nhan(trungbinh2so , h))
+        .then(ketqua => resolve(ketqua))
+        .catch(error => reject(error))
+    })
 }
 
-dientichhinhthang(1 , 10 , 'x' , (error , ketqua) => {
-    console.log(error|| ketqua)
-})
+// dientichhinhthang(1 , 10 , 5 )
+// .then(ketqua => console.log(ketqua))
+// .catch(error => console.log(error))
+
+cong('x' , 5)
+.catch(error => console.log(error))
+.then(tong => console.log(tong))
 
 
