@@ -5,19 +5,18 @@ function cong(a, b) {
         const URL = `https://pheptinhonline.herokuapp.com/cong/${a}/${b}`
         request(URL, { json: true }, (error, response, body) => {
             if (error) return reject(error)
+            if(body.success == false) return reject(body.message + "cong")
             resolve(body.message)
         })
     })
 }
-// cong(10 , 'x')
-// .then(response => console.log(response))
-// .catch(error => console.log(error.message))
 
 function tru(a, b) {
    return new Promise((resolve , reject) => {
         const URL = `https://pheptinhonline.herokuapp.com/tru/${a}/${b}`
         request(URL, { json: true }, (error, response, body) => {
             if (error) reject(error)
+            if(body.success == false) return reject(body.message )
             resolve(body.message)
         })
    })
@@ -28,6 +27,7 @@ function nhan(a, b) {
         const URL = `https://pheptinhonline.herokuapp.com/nhan/${a}/${b}`
         request(URL, { json: true }, (error, response, body) => {
             if (error) reject(error)
+            if(body.success == false) return reject(body.message + "nhan")
             resolve(body.message)
         })
    })
@@ -38,32 +38,23 @@ function chia(a, b) {
         const URL = `https://pheptinhonline.herokuapp.com/chia/${a}/${b}`
         request(URL, { json: true }, (error, response, body) => {
             if (error) reject(error)
+            if(body.success == false) return reject(body.message + "chia")
             resolve(body.message)
         })
    })
 }
 
-// cong(10 , 'x' , (error , tong) => {
-//     if(error) return console.log(error)
-//     nhan(tong , 2 , (error , tich) => {
-//         if(error) return console.log(error)
-//         console.log(tich)
-//     })
-// })
 //1/2 (a+b) x h
-// function dientichhinhthang(a, b, h, cb) {
-//     cong(a,b , (error, tong) => {
-//         if (error) return cb(error)
-//         chia(tong, 2, (error, thuong) => {
-//             if (error) return cb(error)
-//             nhan(thuong , h , (error,tich) => {
-//                 if(error) return cb(error)
-//                 cb(null , tich)
-//             })
-//         })
-//     })
-   
-// }
+function dientichhinhthang(a, b, h, cb) {
+    cong(a , b)
+    .then(tong => chia(tong , 2))
+    .then(trungbinh2so => nhan(trungbinh2so , h))
+    .then(ketqua => cb(null , ketqua))
+    .catch(error => cb(error))
+}
 
+dientichhinhthang(1 , 10 , 'x' , (error , ketqua) => {
+    console.log(error|| ketqua)
+})
 
 
