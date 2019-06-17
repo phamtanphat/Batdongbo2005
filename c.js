@@ -9,31 +9,40 @@ function cong(a, b) {
         })
     })
 }
-cong(10 , 'x')
-.then(response => console.log(response))
-.catch(error => console.log(error.message))
+// cong(10 , 'x')
+// .then(response => console.log(response))
+// .catch(error => console.log(error.message))
 
-// function tru(a, b, cb) {
-//     const URL = `https://pheptinhonline.herokuapp.com/tru/${a}/${b}`
-//     request(URL, { json: true }, (error, response, body) => {
-//         if (error) return cb(error)
-//         cb(null, body.message)
-//     })
-// }
-// function nhan(a, b, cb) {
-//     const URL = `https://pheptinhonline.herokuapp.com/nhan/${a}/${b}`
-//     request(URL, { json: true }, (error, response, body) => {
-//         if (error) return cb(error)
-//         cb(null, body.message)
-//     })
-// }
-// function chia(a, b, cb) {
-//     const URL = `https://pheptinhonline.herokuapp.com/chia/${a}/${b}`
-//     request(URL, { json: true }, (error, response, body) => {
-//         if (error) return cb(error)
-//         cb(null, body.message)
-//     })
-// }
+function tru(a, b) {
+   return new Promise((resolve , reject) => {
+        const URL = `https://pheptinhonline.herokuapp.com/tru/${a}/${b}`
+        request(URL, { json: true }, (error, response, body) => {
+            if (error) reject(error)
+            resolve(body.message)
+        })
+   })
+}
+
+function nhan(a, b) {
+    return new Promise((resolve , reject) => {
+        const URL = `https://pheptinhonline.herokuapp.com/nhan/${a}/${b}`
+        request(URL, { json: true }, (error, response, body) => {
+            if (error) reject(error)
+            resolve(body.message)
+        })
+   })
+}
+
+function chia(a, b) {
+    return new Promise((resolve , reject) => {
+        const URL = `https://pheptinhonline.herokuapp.com/chia/${a}/${b}`
+        request(URL, { json: true }, (error, response, body) => {
+            if (error) reject(error)
+            resolve(body.message)
+        })
+   })
+}
+
 // cong(10 , 'x' , (error , tong) => {
 //     if(error) return console.log(error)
 //     nhan(tong , 2 , (error , tich) => {
