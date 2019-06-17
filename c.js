@@ -59,6 +59,7 @@ function dientichhinhthang(a, b, h) {
 // .then(ketqua => console.log(ketqua))
 // .catch(error => console.log(error))
 
+
 cong('x' , 5)
 .catch(error => console.log(error))
 .then(tong => console.log(tong))
